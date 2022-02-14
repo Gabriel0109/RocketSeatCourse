@@ -5,7 +5,7 @@ export function RepoItem(props) {
         <li>
             <strong>{props.repository?.name ?? 'Default'}</strong>
             <p>{props.repository?.description ?? 'Description'}</p>
-            <a href={props.repository?.link ?? 'https://google.com'} target="_blank">
+            <a href={props.repository?.html_url ?? 'https://google.com'} target="_blank">
                 Acessar repositorio
             </a>
         </li>
