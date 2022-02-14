@@ -1,9 +1,17 @@
 import { useState, useEffect } from 'react';
 import '../styles/repolist.scss'
 import { RepoItem } from './RepoItem';
-// https://api.github.com/users/Gabriel0109/repos
+
+interface Repo {
+    name: string;
+    description: string;
+    html_url: string;
+}
+
 export function RepoList() {
-    const [repos, setRepos] = useState([]);
+    const [repos, setRepos] = useState<Repo[]>([]);
+
+
 
     useEffect(() => {
         fetch('https://api.github.com/users/Gabriel0109/repos')
@@ -16,8 +24,8 @@ export function RepoList() {
         <section className='repo-list'>
             <h1>Lista de repositorios</h1>
             <ul>
-                {repos.map(repos => {
-                    return <RepoItem key={repos.name} repository={repos} />
+                {repos.map(repo => {
+                    return <RepoItem key={repo.name} repository={repo} />
                 })}
 
             </ul>
