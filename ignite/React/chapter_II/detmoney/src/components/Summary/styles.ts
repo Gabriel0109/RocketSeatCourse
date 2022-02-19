@@ -16,10 +16,15 @@ export const Container = styled.div`
             justify-content: space-between;
         }
         strong { 
+            display: block;
             font-size: 2rem;
             margin-top: 1rem;
             font-weight: 500;
             line-height:3rem
+        }
+        &.highlight-background {
+            background-color: var(--green);
+            color: #fff;
         }
     }
 `
