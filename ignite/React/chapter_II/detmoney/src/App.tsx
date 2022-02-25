@@ -3,7 +3,9 @@ import Modal from "react-modal"
 import { useState } from 'react'
 import { Header } from "./components/Header";
 import { GlobalStyle } from "./styles/global";
+import { NewTransactionModal } from "./components/Modal";
 
+Modal.setAppElement('#root')
 export function App() {
   // ABRIR E FECHAR MODAL
   const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
@@ -12,18 +14,15 @@ export function App() {
   }
   function handleCloseNewTransactionModal() {
     setIsNewTransactionModalOpen(false);
-
   }
   // END MODAL
   return (
     <>
       <Header onOpenNewTransactionModal={handleOpenNewtransactionModal} />
       <Dashboard />
-      <Modal
+      <NewTransactionModal
         isOpen={isNewTransactionModalOpen}
-        onRequestClose={handleCloseNewTransactionModal}>
-        <h1>oi</h1>
-      </Modal>
+        onRequestClose={handleCloseNewTransactionModal} />
       <GlobalStyle />
     </>
 
