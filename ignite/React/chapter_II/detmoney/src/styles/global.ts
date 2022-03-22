@@ -45,4 +45,8 @@ export const GlobalStyle = createGlobalStyle`
         cursor: not-allowed;
 
     }
-`
+    .react-modal-overlay{
+        background-color: rgba(0,0,0,0.5);
+    }
+    
+    `
