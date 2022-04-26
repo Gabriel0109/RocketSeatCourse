@@ -1,5 +1,5 @@
 import Modal from "react-modal"
-import { FormEvent, useState } from 'react'
+import { FormEvent, useState, useContext } from 'react'
 import { Container, TransactionTypeConatiner, RadioBox } from "./styles";
 import income from '../../assets/income.svg'
 import outcome from '../../assets/outcome.svg'
