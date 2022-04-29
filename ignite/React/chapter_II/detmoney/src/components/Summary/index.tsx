@@ -1,13 +1,12 @@
-import React, { useContext } from "react";
 
 import { Container } from "./styles";
 
 import incomeIcon from '../../assets/income.svg'
 import outcomeIcon from '../../assets/outcome.svg'
 import totalIcon from '../../assets/total.svg'
-import { TransactionsContext } from "../../TransactionContext";
+import { useTransactions } from "../../hooks/useTransactions";
 export function Summary() {
-    const {transactions} = useContext(TransactionsContext);
+    const {transactions} = useTransactions();
 
     // const totalDeposits = transactions.reduce((acc, transaction) => {
     //     if (transaction.type === 'deposit') {
@@ -46,7 +45,11 @@ export function Summary() {
                     <img src={incomeIcon} alt="" />
                 </header>
                 <strong>
-                    R$ {summary.deposit}
+                    {new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(summary.deposit)}
+                   
                 </strong>
             </div>
             <div>
@@ -55,7 +58,10 @@ export function Summary() {
                     <img src={outcomeIcon} alt="" />
                 </header>
                 <strong>
-                    - R$ {summary.withdrawl}
+                    -  {new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(summary.withdrawl)}
                 </strong>
             </div>
             <div className="highlight-background">
@@ -64,7 +70,10 @@ export function Summary() {
                     <img src={totalIcon} alt="" />
                 </header>
                 <strong>
-                    R$ {summary.total}
+                    {new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(summary.total)}
                 </strong>
             </div>
         </Container>
