@@ -4,7 +4,6 @@ import { Container, TransactionTypeConatiner, RadioBox } from "./styles";
 import income from '../../assets/income.svg'
 import outcome from '../../assets/outcome.svg'
 import close from '../../assets/close.svg'
-import { api } from '../../services/api'
 import { TransactionsContext } from "../../TransactionContext";
 interface NewTransactionModalProps {
     isOpen: boolean
