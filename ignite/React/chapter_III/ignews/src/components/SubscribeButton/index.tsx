@@ -1,6 +1,4 @@
-import styles from './styles.module.css';
-
-
+import styles from './styles.module.scss';
 
 export function SubscribeButton(){
     return(
@@ -8,7 +6,7 @@ export function SubscribeButton(){
             type="button"
             className={styles.subscribeButton}
         >
-
+            Subscribe Now
         </button>
     )
 }
