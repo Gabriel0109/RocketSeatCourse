@@ -1,5 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/react";
+import { fauna } from "../../services/fauna";
+import {query as q } from 'faunadb'
 
 import { stripe } from "../../services/stripe";
 
@@ -11,7 +13,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         const stripeCostumer = await stripe.customers.create({
             email: session.user.email
         })
-
+        // await fauna.query(
+        // )
         const stripeCheckoutSession = await stripe.checkout.sessions.create({
             customer: stripeCostumer.id,
             payment_method_types: ['card'],
