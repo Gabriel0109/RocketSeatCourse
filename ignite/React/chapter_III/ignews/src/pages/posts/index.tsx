@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { getPrismicClient } from '../../services/prismic'
 import styles from './styles.module.scss'
 import { RichText } from 'prismic-dom'
+import Link from 'next/link'
 type Post = {
     slug: string;
     title: string;
@@ -27,11 +28,13 @@ export default function Posts({posts}){
             <div className={styles.posts}>
                 {posts.map(post => (
  // eslint-disable-next-line react/jsx-key
-                <a key={post.slug} href="">
-                <time>{post.data}</time>
-                <strong>{post.title}</strong>
-                <p>{post.excerpt}</p>
-                </a>
+                <Link href={`posts/${post.slug}`}>
+                    <a key={post.slug} >
+                    <time>{post.data}</time>
+                    <strong>{post.title}</strong>
+                    <p>{post.excerpt}</p>
+                    </a>
+                </Link>
                 ))}
                
             </div>
